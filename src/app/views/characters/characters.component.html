@@ -1,0 +1,50 @@
+<p>characters works!</p>
+
+<div class="row mb-4">
+    <div class="col-md-12 mt-5 pb-3" *ngIf="characters.length>0">
+        <div class="d-flex flex-wrap">
+            <div class="data-item p-2 border-0 bg-starka rounded-5"
+                *ngFor="let character of characters | paginate: { itemsPerPage: payload.per_page, currentPage: p, totalItems: totalEntries }">
+                <app-item-character [character]="character"> </app-item-character>
+                <!--(vehicleData)="asignVehicle($event)"-->
+            </div>
+        </div>
+        <div class="list-group rounded-5 shadow" *ngIf="characters?.length==0">
+            <div class="list-group-item text-center py-5" *ngIf="loading">
+                <mat-icon>incomplete_circle</mat-icon>
+                <!--<fa-icon [icon]="icons.faCircleNotch" size="2x" animation="spin" class="text-secondary"></fa-icon> -->
+                <p class="text-muted">Cargando...</p>
+            </div>
+            <div class="list-group-item text-center py-5" *ngIf="!loading">
+                <img src="/assets/images/empty-state.png" width="240px">
+                <h5 class="text-muted">No se encontraron registros</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 text-end mt-4" *ngIf="characters.length > 0">
+        <pagination-controls
+        (pageChange)="p = $event"
+        (pageChange)="pageChanged($event)"
+        previousLabel="Prev."
+        nextLabel="Sig."
+        screenReaderPaginationLabel="Pagination"
+        screenReaderPageLabel="page"
+        *ngIf="characters.length>0"
+      ></pagination-controls>
+    </div>
+</div>
+<section class="main-container"><!-- *ngIf="!loading" -->
+    <form [formGroup]="formOrder">
+        <mat-grid-list cols="12">
+            <mat-grid-tile>
+                <mat-card appearance="outlined">
+                    <mat-card-content>Simple card</mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+            <mat-grid-tile>2</mat-grid-tile>
+            <mat-grid-tile>3</mat-grid-tile>
+            <mat-grid-tile>4</mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</section>
+
