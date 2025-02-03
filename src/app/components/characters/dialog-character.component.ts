@@ -7,8 +7,15 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['../../views/characters/dialog-character.component.css']
 })
 export class DialogCharacterComponent {
+
+  character: any;
+  comics: Array<any>;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { 
-    
+    this.character = data.character;
+    this.comics = this.character.comics.items;
   }
 
+  getImg() {
+    return this.character.thumbnail.path + '.' + this.character.thumbnail.extension;
+  }
 }

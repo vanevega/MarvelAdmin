@@ -1,6 +1,4 @@
-<p>item-character works!</p>
-
-<button mat-button (click)="openDialog()">Open dialog</button>
-
-
-<!--<app-dialog-character></app-dialog-character>-->
+<div class="card" (click)="openDialog()">
+    <img [src]="getImg()" height="120px">
+    <h5 class="text-muted">{{character.name}}</h5>
+</div>

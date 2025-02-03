@@ -1,16 +1,18 @@
-<mat-toolbar>
-  <button mat-fab extended  class="btn-nav" aria-label="Personajes de Marvel" routerLink="characters">
-    <mat-icon>people</mat-icon>
-    Personajes
-  </button>
-  <span class="spacer"></span>
-  <button mat-fab extended class="btn-nav" aria-label="Bítacora de consultas" routerLink="logs">
-    <mat-icon>list_alt</mat-icon>
-    Bitácora
-  </button>
-</mat-toolbar>
-<div class="d-flex main-container">
-  <div class="container-fluid p-0">
-    <router-outlet></router-outlet>
+<div *ngIf="hasPermission">
+  <mat-toolbar>
+    <button mat-fab extended  class="btn-nav" aria-label="Personajes de Marvel" routerLink="characters">
+      <mat-icon>people</mat-icon>
+      Personajes
+    </button>
+    <span class="spacer"></span>
+    <button mat-fab extended class="btn-nav" aria-label="Bítacora de consultas" routerLink="logs">
+      <mat-icon>list_alt</mat-icon>
+      Bitácora
+    </button>
+  </mat-toolbar>
+  <div class="d-flex main-container">
+    <div class="container-fluid p-0">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
