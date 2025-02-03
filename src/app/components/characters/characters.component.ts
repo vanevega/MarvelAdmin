@@ -8,11 +8,8 @@ import { ManagementService } from 'src/app/services/management.service';
   styleUrls: ['../../views/characters/characters.component.css'],
 })
 export class CharactersComponent implements OnInit {
-
-  formOrder: FormGroup = new FormGroup({});
   loading: boolean = false;
-  characters: Array<string> = [];
-  sizePerPage: number = 10;
+  characters: Array<any> = [];
   totalEntries: number = 100;
   payload: any = {
     is_active: true,

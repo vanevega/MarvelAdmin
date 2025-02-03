@@ -27,4 +27,9 @@ export class ManagementService extends CommonService {
   public getLoginToken(userPayload: any): Observable<any> {
     return this.httpClient.post(`${this.apiURL}/outside/login`, userPayload);
   }
+
+  public getAllAccess(): Observable<any> {
+    const options = this.getHeaders(localStorage.getItem('token'));
+    return this.httpClient.get(`${this.apiURL}/inside/access`, options);
+  }
 }

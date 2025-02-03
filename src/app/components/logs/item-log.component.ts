@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-item-log',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['../../views/logs/item-log.component.css']
 })
 export class ItemLogComponent {
-
+  @Input()
+  item: any;
 }
